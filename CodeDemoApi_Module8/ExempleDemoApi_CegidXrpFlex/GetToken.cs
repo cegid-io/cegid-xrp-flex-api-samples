@@ -8,6 +8,9 @@ namespace ExempleDemoApi_CegidXrpFlex
 {
     class GetToken
     {
+        /**
+         * Cette méthode permet de récupérer un token sur le serveur Cegid XRP Flex pour nos appels API
+         */
         public static string GetOauthToken(string username, string password, string scope, string client_id, string client_secret, string authUrl)
         {
             var client = new RestClient(authUrl);
