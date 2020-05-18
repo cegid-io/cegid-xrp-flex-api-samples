@@ -30,9 +30,9 @@ namespace ExempleDemoApi_CegidXrpFlex
             const string req1 = "Customer?$expand=MainContact,MainContact/Address,BillingContact&$select=CustomerID,CustomerName,CustomerClass,StatementCycleID,MainContact/Email,MainContact/Phone1,MainContact/Address/AddressLine1,MainContact/Address/AddressLine2,MainContact/Address/City,MainContact/Address/State,MainContact/Address/PostalCode,MainContact/DisplayName&$filter=CustomerName eq 'Hotel du Lac'";
             Console.WriteLine(flex.executeGetRequest(req1));
 
-            // Requete 2
+            /*// Requete 2
             const string req2 = "Customer?$select=CustomerID,CustomerName,MainContact/Email&$expand=MainContact&$filter=CustomerID eq 'C000000004'";
-            Console.WriteLine(flex.executeGetRequest(req2));
+            Console.WriteLine(flex.executeGetRequest(req2));*/
 
             /*// Requete 3
             const string req3 = "Customer?$select=CustomerID,MainContact/Email&$expand=MainContact&$filter=MainContact/Email eq 'ghrum@ghrum.bis'";
