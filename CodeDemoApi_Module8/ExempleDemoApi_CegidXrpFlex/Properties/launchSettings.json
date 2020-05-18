@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ExempleDemoApi_CegidXrpFlex": {
+      "commandName": "Project",
+      "commandLineArgs": "..\\..\\..\\jsconfig1.json"
+    }
+  }
+}
