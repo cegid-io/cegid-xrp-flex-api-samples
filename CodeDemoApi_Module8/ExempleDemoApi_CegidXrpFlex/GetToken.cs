@@ -14,6 +14,7 @@ namespace ExempleDemoApi_CegidXrpFlex
         public static string GetOauthToken(string username, string password, string scope, string client_id, string client_secret, string authUrl)
         {
             var client = new RestClient(authUrl);
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true; 
             var request = new RestRequest(Method.POST);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("content-type", "application/x-www-form-urlencoded");
@@ -24,6 +25,18 @@ namespace ExempleDemoApi_CegidXrpFlex
             JObject json = JObject.Parse(response.Content);
             JToken token = json.SelectToken("access_token");
             return (string)token;
+
+        }
+
+        public static void Logout(string token, string logoutUrl)
+        {
+            var client = new RestClient(logoutUrl);
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true; 
+            var request = new RestRequest(Method.POST);  
+            request.AddHeader("accept", "application/json");
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("Authorization", "Bearer " + token);
+            IRestResponse response = client.Execute(request); 
 
         }
     }

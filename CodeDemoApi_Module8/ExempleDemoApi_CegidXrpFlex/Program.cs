@@ -16,6 +16,7 @@ namespace ExempleDemoApi_CegidXrpFlex
 
             string apiUrl = (string)json.SelectToken("url");
             string tokenUrl = (string)json.SelectToken("tokenUrl");
+            string logoutUrl = (string)json.SelectToken("logoutUrl");
             string username = (string)json.SelectToken("username");
             string password = (string)json.SelectToken("password");
             string scope = (string)json.SelectToken("scope");
@@ -38,6 +39,8 @@ namespace ExempleDemoApi_CegidXrpFlex
             const string req3 = "Customer?$select=CustomerID,MainContact/Email&$expand=MainContact&$filter=MainContact/Email eq 'ghrum@ghrum.bis'";
             const string param3 = "{\"CustomerName\":{\"value\":\"Gupp info\"}}";
             Console.WriteLine(flex.executePutRequest(req3, param3));*/
+
+            GetToken.Logout(token, logoutUrl);
 
             Console.ReadLine();
         }
